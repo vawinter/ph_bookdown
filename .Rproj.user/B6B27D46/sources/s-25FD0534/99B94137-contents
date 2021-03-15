@@ -1,0 +1,33 @@
+--- 
+title: "Space-use and Demography of Pronghorn in Utah"
+author: "Veronica A. Winter"
+date: "`r Sys.Date()`"
+bibliography:
+- book.bib
+- packages.bib
+description: This is a final semester project based on a master's thesis examining
+  space-use behvaiors and demogrpahic consequences.
+documentclass: book
+link-citations: yes
+site: bookdown::bookdown_site
+biblio-style: ecology
+---
+# Project background {#index}
+
+**What is space-use?**
+
+The distribution and abundance of individual animals across a heterogeneous landscape is expected to influence population dynamics as a whole (Morales et al. 2010). An animal’s movement through a landscape reflects its perception and reaction to its environment. This movement of individuals occurs in response to the shifting distribution of resources across space and time and ultimately translates into patterns of survival and reproductive success (Gaillard et al. 2010). Space-use behavior reflects spatial and temporal trade-offs an animal must navigate to meet fitness requirements, such as balancing nutritional uptake against predator avoidance (Rosenzweig 1991), and the spatial distribution of individuals is directly linked to dynamics of the population (Fig. 1; Kernohan et al. 2001). The resulting space-use patterns of an individual can offer insights into behavioral and demographic processes affecting population viability, but despite the apparent connection, the link between demographic rates and movement ecology is rarely empirically examined in the literature. 
+
+ **Why is this important?**
+ 
+Animals exhibit distinct classes of movement behaviors that can vary at different spatiotemporal scales. Migration is one class of annual movement behavior in which individuals will travel between home ranges at seasonal intervals (Dingle and Drake 2007). This alternation between seasonal ranges is hypothesized to be driven by benefits such as reduced predation risk, mating, and increasing access to higher-quality forage (Avgar et al. 2014). Range residency and nomadism are additional classes of  movement patterns driven by phenology and landscape factors which dictate range occupancy and alter population distribution strategies (Mueller and Fagan 2008, Mueller et al. 2011). It is by examining these movement patterns that we may gain a deeper understanding of the contribution of an individual’s behavior to population distributions and viability at the seasonal and annual spatiotemporal scale.
+
+ **Why pronghorn?**
+ 
+The pronghorn, **Antilocapra americana**, is North Americas’ *only* extant endemic ungulate, and has historical ranges within prairie, shrubland-steppe, and desert habitat in the continental west (Berger 2004). Recent population declines across this species wide geographic range have sparked a growing interest in investigating their previously understudied ecology (Beale and Smith 1970, Byers 1997, Poor et al. 2012). Pronghorn population dynamics are being altered by anthropogenic disturbance and climate change (Gedir et al. 2015). These changes are often accompanied by arrested landscape-scale movements.
+
+ **The project**
+ 
+I will be investigating pronghorn ecology across space and time while linking variability in space-use patterns to demographic consequences. To do this, I will be using GPS data colelcted over the past several years. By identifying the links between space-use and demography, we will be able to recognize key influential factors that can inform future management of pronghorn as well as other migratory species that share the landscape.
+
+

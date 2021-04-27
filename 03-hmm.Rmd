@@ -1,0 +1,127 @@
+#Behavioral delineation 
+
+*Pronghorn Behavior*
+
+To seperate out movement beahviors from GPS tracks, a hidden marrkov model can be used  
+to seperate out "encamped" vs "exploratory" behavior. 
+
+First, we need to prep the data. I am using an HMM previously fitted using the *momentuHMM* package. I will use this data to fit net square displacement plots to see who is migrant, who is not, and if there are any other behaviors I can observe.
+
+```{r include=FALSE}
+# Load in packages ----
+library(amt)
+library(dplyr)
+library(geosphere)
+library(sf)
+library(ggplot2)
+library(lubridate)
+library(gridExtra)
+
+# Source function
+source("/Users/vermanica/Documents/Projects/Analysis/scripts/Pronghorn/prep_fun.R")
+
+#Set options----
+options(stringsAsFactors = FALSE)
+Sys.setenv(TZ = "UTC")
+
+# 1. Load in data ----
+ph <- readRDS("../../../Data/PH_data/processed_data/HMM_ph_states.rds")
+class(ph)
+str(ph)
+
+# 2. Run function to prep data ----
+nsd_prep(ph)
+
+# 3. filter out year ---
+# want range to be between 02/01/year - 02/01/ next year
+data <- ph %>%
+  select(XLOC = x,
+         YLOC = y,
+         dt = time,
+         ID,
+         state) %>%
+  mutate(state = factor(state, levels = c(1, 2))) %>% 
+  mutate(dt = ymd_hms(dt)) %>%
+  filter(dt >= "2018-02-01" & dt <= "2019-02-03")  
+
+
+str(data)
+```
+
+Next, we will fit NSD plots using an HMM output that gives us a breakdown of movements between "encamped" and "exploratory".
+
+```{r include=FALSE}
+# 4. Calculate NSD  ----
+# run function to set this up
+next_nsd(data)
+
+# loop over indiv 
+# want this grouped by indiv
+individuals <- unique(data$ID)
+# empty data frame for storage
+data2 <- data.frame()
+
+# nested for loop to loop NSD calculation over entire data set
+for(i in 1:length(individuals)){
+  # print status
+  print(paste(i, individuals[i]))
+  # temporary file where I can filter based on indiv to get indiv calculations
+  temp <- data %>% 
+    filter(ID == individuals[i])
+  # for loop to loop calculations over temp data frame
+  if(nrow(temp) > 2){
+    for(j in 2:(nrow(temp) -1)){
+      # first calculations for each indiv 
+      temp$Xdist[1] <- temp$XLOC[2] - temp$XLOC[1]
+      temp$Ydist[1] <- temp$YLOC[2] - temp$YLOC[1]
+      temp$NSD[1]   <- as.integer(sqrt(temp$Xdist[1]^2+temp$Ydist[1]^2))
+      # subsequent calculations for rest of the data per indiv
+    temp$Xdist[j] <- temp$XLOC[j+1] - temp$XLOC[j] + temp$Xdist[j-1]
+    temp$Ydist[j] <- temp$YLOC[j+1] - temp$YLOC[j] + temp$Ydist[j-1]
+    temp$NSD[j] <- as.numeric(sqrt(temp$Xdist[j]^2 + temp$Ydist[j]^2))
+    }
+  }else{
+    next
+  }
+  # combine the two data frames
+    data2 <- rbind(data2, temp)
+}
+     
+```
+Finally, I will subset this data to three individuals presenting different movement patterns.
+
+```{r include=TRUE}
+# select idividuals presenting different movements
+data1 <- data2 %>% filter(ID == "PR17F0015")
+data3 <- data2 %>% filter(ID == "PR17F0012")
+data4 <- data2 %>% filter(ID == "PR17F0033")
+
+# plot each individual
+p1 <- ggplot(data1, aes(x = dt, y = NSD, color = state)) +
+                 geom_point() +
+            expand_limits(y = c(0, 35000)) +
+             theme_minimal()+
+    xlab("Date") +
+        ggtitle("PR17F0015 - Migrant")
+
+p2 <- ggplot(data3, aes(x = dt, y = NSD, color = state)) +
+                 geom_point() +
+            expand_limits(y = c(0, 35000)) +
+             theme_minimal()+
+    xlab("Date") +
+        ggtitle("PR17F0012 - Dispersal")
+
+p3 <- ggplot(data4, aes(x = dt, y = NSD, color = state)) +
+                 geom_point() +
+            expand_limits(y = c(0, 35000)) +
+             theme_minimal()+
+    xlab("Date") +
+        ggtitle("PR17F0033 - Unknown")
+
+# group plots together
+grid.arrange(p1,
+  arrangeGrob(p2, p3, ncol = 2),
+             nrow = 2)
+```
+These individuals are presenting different movements. The top plot shows a mirant individual, the bottom right shows a disperser, and the bottom left shows an individual whose movements are not able to be catagotized.
+

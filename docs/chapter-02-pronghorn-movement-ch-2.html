@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Space-use and Demography of Pronghorn in Utah</title>
+  <title>Chapter 3 Chapter 02 - Pronghorn Movement {#Ch 2} | Space-use and Demography of Pronghorn in Utah</title>
   <meta name="description" content="This is a final semester project based on a master's thesis examining space-use behvaiors and demogrpahic consequences." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Space-use and Demography of Pronghorn in Utah" />
+  <meta property="og:title" content="Chapter 3 Chapter 02 - Pronghorn Movement {#Ch 2} | Space-use and Demography of Pronghorn in Utah" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Space-use and Demography of Pronghorn in Utah" />
+  <meta name="twitter:title" content="Chapter 3 Chapter 02 - Pronghorn Movement {#Ch 2} | Space-use and Demography of Pronghorn in Utah" />
   
   <meta name="twitter:description" content="This is a final semester project based on a master's thesis examining space-use behvaiors and demogrpahic consequences." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="establishing-a-sql-data-base.html"/>
+<link rel="prev" href="establishing-a-sql-data-base-ch-1.html"/>
+<link rel="next" href="behavioral-delineation-ch-3.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -106,10 +106,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><a href="./">Pronghorn in Utah</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Background: What is space-use?</a></li>
-<li class="chapter" data-level="2" data-path="establishing-a-sql-data-base.html"><a href="establishing-a-sql-data-base.html"><i class="fa fa-check"></i><b>2</b> Establishing a SQL data base</a></li>
-<li class="chapter" data-level="3" data-path="pronghorn-movement.html"><a href="pronghorn-movement.html"><i class="fa fa-check"></i><b>3</b> Pronghorn Movement</a></li>
-<li class="chapter" data-level="4" data-path="behavioral-delineation.html"><a href="behavioral-delineation.html"><i class="fa fa-check"></i><b>4</b> Behavioral delineation</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Project background</a></li>
+<li class="chapter" data-level="2" data-path="establishing-a-sql-data-base-ch-1.html"><a href="establishing-a-sql-data-base-ch-1.html"><i class="fa fa-check"></i><b>2</b> Establishing a SQL data base {#Ch 1}</a></li>
+<li class="chapter" data-level="3" data-path="chapter-02-pronghorn-movement-ch-2.html"><a href="chapter-02-pronghorn-movement-ch-2.html"><i class="fa fa-check"></i><b>3</b> Chapter 02 - Pronghorn Movement {#Ch 2}</a><ul>
+<li class="chapter" data-level="3.1" data-path="chapter-02-pronghorn-movement-ch-2.html"><a href="chapter-02-pronghorn-movement-ch-2.html#pronghorn-movements"><i class="fa fa-check"></i><b>3.1</b> Pronghorn movements</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="behavioral-delineation-ch-3.html"><a href="behavioral-delineation-ch-3.html"><i class="fa fa-check"></i><b>4</b> 03 - Behavioral delineation {#Ch 3}</a><ul>
+<li class="chapter" data-level="4.1" data-path="behavioral-delineation-ch-3.html"><a href="behavioral-delineation-ch-3.html#r-markdown"><i class="fa fa-check"></i><b>4.1</b> R Markdown</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -130,29 +134,38 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Space-use and Demography of Pronghorn in Utah</h1>
-<p class="author"><em>Veronica A. Winter</em></p>
-<p class="date"><em>2021-04-27</em></p>
-</div>
-<div id="background-what-is-space-use" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Background: What is space-use?</h1>
-<p>The distribution and abundance of individual animals across a heterogeneous landscape is expected to influence population dynamics as a whole (Morales et al. 2010). An animal’s movement through a landscape reflects its perception and reaction to its environment. This movement of individuals occurs in response to the shifting distribution of resources across space and time and ultimately translates into patterns of survival and reproductive success (Gaillard et al. 2010). Space-use behavior reflects spatial and temporal trade-offs an animal must navigate to meet fitness requirements, such as balancing nutritional uptake against predator avoidance (Rosenzweig 1991), and the spatial distribution of individuals is directly linked to dynamics of the population (Kernohan et al. 2001). The resulting space-use patterns of an individual can offer insights into behavioral and demographic processes affecting population viability, but despite the apparent connection, the link between demographic rates and movement ecology is rarely empirically examined in the literature.</p>
-<p><strong>Why is this important?</strong></p>
-<p>Animals exhibit distinct classes of movement behaviors that can vary at different spatiotemporal scales. Migration is one class of annual movement behavior in which individuals will travel between home ranges at seasonal intervals (Dingle and Drake 2007). This alternation between seasonal ranges is hypothesized to be driven by benefits such as reduced predation risk, mating, and increasing access to higher-quality forage (Avgar et al. 2014). Range residency and nomadism are additional classes of movement patterns driven by phenology and landscape factors which dictate range occupancy and alter population distribution strategies (Mueller and Fagan 2008, Mueller et al. 2011). It is by examining these movement patterns that we may gain a deeper understanding of the contribution of an individual’s behavior to population distributions and viability at the seasonal and annual spatiotemporal scale.</p>
-<p><strong>Why pronghorn?</strong></p>
-<p>The pronghorn, <strong>Antilocapra americana</strong>, is North Americas’ <em>only</em> extant endemic ungulate, and has historical ranges within prairie, shrubland-steppe, and desert habitat in the continental west (Berger 2004). Recent population declines across this species wide geographic range have sparked a growing interest in investigating their previously understudied ecology (Beale and Smith 1970, Byers 1997, Poor et al. 2012). Pronghorn population dynamics are being altered by anthropogenic disturbance and climate change (Gedir et al. 2015). These changes are often accompanied by arrested landscape-scale movements.</p>
-<p><strong>The project</strong></p>
-<p>I will be investigating pronghorn ecology across space and time while linking variability in space-use patterns to demographic consequences. To do this, I will be using GPS data colelcted over the past several years. By identifying the links between space-use and demography, we will be able to recognize key influential factors that can inform future management of pronghorn as well as other migratory species that share the landscape.</p>
+<div id="chapter-02---pronghorn-movement-ch-2" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Chapter 02 - Pronghorn Movement {#Ch 2}</h1>
+<div id="pronghorn-movements" class="section level2">
+<h2><span class="header-section-number">3.1</span> Pronghorn movements</h2>
+<p>It is unknown if pronghorn are currently migrating or not in the state of Utah. lets start by plotting some GPS points for each management unit where pronghorn were collared in 2019.:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">all &lt;-<span class="st"> </span>ph <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">left_join</span>(fix, <span class="dt">by =</span> <span class="st">&quot;ID&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">select</span>(x,
+        y,
+        time,
+        ID,
+        unit) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(<span class="kw">year</span>(time) <span class="op">%in%</span><span class="st"> </span><span class="dv">2019</span>) 
 
+<span class="co">#plot data</span>
+  <span class="kw">ggplot</span>(all, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> x, <span class="dt">y =</span> y, <span class="dt">color =</span> unit)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;UTM Easting&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;UTM Northing&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Pronghorn in UT - 2019&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_minimal</span>()</code></pre></div>
+<p><img src="ph_final_prj_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p>We will explore these movements more in the following chapter.</p>
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="establishing-a-sql-data-base.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="establishing-a-sql-data-base-ch-1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="behavioral-delineation-ch-3.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -12,9 +12,7 @@ link-citations: yes
 site: bookdown::bookdown_site
 biblio-style: ecology
 ---
-# Project background {#index}
-
-**What is space-use?**
+#Background: What is space-use?
 
 The distribution and abundance of individual animals across a heterogeneous landscape is expected to influence population dynamics as a whole (Morales et al. 2010). An animal’s movement through a landscape reflects its perception and reaction to its environment. This movement of individuals occurs in response to the shifting distribution of resources across space and time and ultimately translates into patterns of survival and reproductive success (Gaillard et al. 2010). Space-use behavior reflects spatial and temporal trade-offs an animal must navigate to meet fitness requirements, such as balancing nutritional uptake against predator avoidance (Rosenzweig 1991), and the spatial distribution of individuals is directly linked to dynamics of the population (Kernohan et al. 2001). The resulting space-use patterns of an individual can offer insights into behavioral and demographic processes affecting population viability, but despite the apparent connection, the link between demographic rates and movement ecology is rarely empirically examined in the literature. 
 

@@ -1,0 +1,75 @@
+# set up neccessary items---
+
+#label states
+stateNames <- c("encamped","exploratory")
+
+# distributions for observation processes
+dist = list(step = "gamma", angle = "vm")
+
+# initial paramaters -> step
+mu0 <- c(500, 4000)
+sigma0 <- c(500, 4000)
+zero_mass0 <- c(0, 0.5)
+step_par0 <- c(mu0, sigma0, zero_mass0)
+
+# inital params - angle
+angle_mean0 <- c(pi)  
+angle_conc0 <- c(0.7)
+angle_par0 <- c(angle_mean0, angle_conc0)
+nbstates <- 2
+#Par <- c(angle_par0, step_par0)
+
+# find initial params---
+getParDM(data = ph_2, nbStates = nbstates, dist = dist,
+         Par = list(angle = angle_par0, step = step_par0))
+
+
+# fit model----
+ph_3 <- fitHMM(data = ph_2, nbStates = nbstates, stateNames = stateNames,
+               dist = dist, Par0 = list(step = c(5e+02, 4e+03, 5e+02, 4e+03,
+                                                 0e+00, 5e-01),
+                                        angle = c(pi, 0.7),
+                                        estAngleMean = list(angle=TRUE)))
+
+### Results ----
+ph_3
+
+# Value of the maximum log-likelihood: -1076504 
+# 
+# 
+# step parameters:
+#   ----------------
+#   encamped  exploratory
+# mean     9.399528e+02 2.229354e+03
+# sd       7.895844e+02 1.685869e+03
+# zeromass 6.125763e-04 4.878676e-06
+# 
+# angle parameters:
+#   -----------------
+#   encamped  exploratory
+# mean           0.000000e+00 0.000000e+00
+# concentration 1.183359e-105 3.505359e-53
+# 
+# Regression coeffs for the transition probabilities:
+#   ---------------------------------------------------
+#   1 -> 2    2 -> 1
+# (Intercept) -3.465867 -3.602818
+# 
+# Transition probability matrix:
+#   ------------------------------
+#   encamped exploratory
+# encamped    0.96970082  0.03029918
+# exploratory 0.02652412  0.97347588
+# 
+# Initial distribution:
+#   ---------------------
+#   encamped exploratory 
+# 0.3002605   0.6997395 
+
+# decode most likely state sequence
+states <- viterbi(ph_3)
+# derive percentage of time spent in each state
+table(states)/nrow(ph_2) * 100
+# states - similar to the 2020 subset. Spent 45% in encamped and 55% in exploritory
+# 1        2 
+# 45.07004 54.92996 

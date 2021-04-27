@@ -1,8 +1,4 @@
-# Establishing a SQL data base {#Ch}
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+#Establishing a SQL data base 
 
  **Pronghorn background**
 
@@ -99,6 +95,7 @@ dbWriteTable(pronghorn, "tracking", track, append = TRUE)
 ```
 
 Last, let's do some checks to make sure everything worked
+
 ```{r echo=TRUE}
 #Check that it worked ---
 dbGetQuery(conn = pronghorn, statement = "SELECT* FROM pronghorn LIMIT 10;")

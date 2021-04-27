@@ -1,0 +1,42 @@
+#Pronghorn Movement 
+
+**Pronghorn movements**
+
+It is unknown if pronghorn are currently migrating or not in the state of Utah. lets start by plotting some GPS points for each management unit where pronghorn were collared in 2019.:
+
+```{r include=FALSE}
+#Load packages----
+library(tidyverse)
+library(dplyr)
+library(lubridate)
+
+#Load data ----
+#setwd("/Users/vermanica/Documents/Projects/Data/PH_data/processed_data")
+getwd()
+
+ph <- readRDS("/Users/vermanica/Documents/Projects/Data/PH_data/processed_data/pronghorn_points_pre-prep2.rds")
+fix <- readRDS("/Users/vermanica/Documents/Projects/Data/PH_data/processed_data/PH_fixed_attri_main.rds")
+
+```
+
+
+```{r echo=TRUE}
+all <- ph %>% 
+  left_join(fix, by = "ID") %>% 
+  select(x,
+        y,
+        time,
+        ID,
+        unit) %>% 
+  filter(year(time) %in% 2019) 
+
+#plot data
+  ggplot(all, mapping = aes(x = x, y = y, color = unit)) +
+  geom_point() +
+  labs(x = "UTM Easting", y = "UTM Northing") +
+  ggtitle("Pronghorn in UT - 2019") +
+  theme_minimal()
+
+
+```
+

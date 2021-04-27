@@ -22,7 +22,7 @@ Animals exhibit distinct classes of movement behaviors that can vary at differen
 
  **Why pronghorn?**
  
-The pronghorn, **Antilocapra americana**, is North Americas’ *only* extant endemic ungulate, and has historical ranges within prairie, shrubland-steppe, and desert habitat in the continental west (Berger 2004). Recent population declines across this species wide geographic range have sparked a growing interest in investigating their previously understudied ecology (Beale and Smith 1970, Byers 1997, Poor et al. 2012). Pronghorn population dynamics are being altered by anthropogenic disturbance and climate change (Gedir et al. 2015). These changes are often accompanied by arrested landscape-scale movements.
+The pronghorn, *Antilocapra americana*, is North Americas’ **only** extant endemic ungulate, and has historical ranges within prairie, shrubland-steppe, and desert habitat in the continental west (Berger 2004). Recent population declines across this species wide geographic range have sparked a growing interest in investigating their previously understudied ecology (Beale and Smith 1970, Byers 1997, Poor et al. 2012). Pronghorn population dynamics are being altered by anthropogenic disturbance and climate change (Gedir et al. 2015). These changes are often accompanied by arrested landscape-scale movements.
 
  **The project**
  

@@ -1,9 +1,9 @@
 #Behavioral delineation 
 
-*Pronghorn Behavior*
+**Pronghorn Behavior**
 
 To seperate out movement beahviors from GPS tracks, a hidden marrkov model can be used  
-to seperate out "encamped" vs "exploratory" behavior. 
+to parse out *encamped* **(1)** vs *exploratory* **(2)** behavior. 
 
 First, we need to prep the data. I am using an HMM previously fitted using the *momentuHMM* package. I will use this data to fit net square displacement plots to see who is migrant, who is not, and if there are any other behaviors I can observe.
 
@@ -123,5 +123,5 @@ grid.arrange(p1,
   arrangeGrob(p2, p3, ncol = 2),
              nrow = 2)
 ```
-These individuals are presenting different movements. The top plot shows a mirant individual, the bottom right shows a disperser, and the bottom left shows an individual whose movements are not able to be catagotized.
+These individuals are presenting different movements. The top plot shows a migrant individual, the bottom right shows a disperser, and the bottom left shows an individual whose movements are not able to be catagotized.
 

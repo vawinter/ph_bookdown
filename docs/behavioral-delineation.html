@@ -132,9 +132,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="behavioral-delineation" class="section level1">
 <h1><span class="header-section-number">Chapter 4</span> Behavioral delineation</h1>
-<p><em>Pronghorn Behavior</em></p>
+<p><strong>Pronghorn Behavior</strong></p>
 <p>To seperate out movement beahviors from GPS tracks, a hidden marrkov model can be used<br />
-to seperate out &quot;encamped&quot; vs &quot;exploratory&quot; behavior.</p>
+to parse out <em>encamped</em> <strong>(1)</strong> vs <em>exploratory</em> <strong>(2)</strong> behavior.</p>
 <p>First, we need to prep the data. I am using an HMM previously fitted using the <em>momentuHMM</em> package. I will use this data to fit net square displacement plots to see who is migrant, who is not, and if there are any other behaviors I can observe.</p>
 <p>Next, we will fit NSD plots using an HMM output that gives us a breakdown of movements between &quot;encamped&quot; and &quot;exploratory&quot;.</p>
 <p>Finally, I will subset this data to three individuals presenting different movement patterns.</p>
@@ -169,7 +169,7 @@ p3 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(data4, <span cla
 <span class="kw">grid.arrange</span>(p1,
   <span class="kw">arrangeGrob</span>(p2, p3, <span class="dt">ncol =</span> <span class="dv">2</span>),
              <span class="dt">nrow =</span> <span class="dv">2</span>)</code></pre></div>
-<p><img src="ph_final_prj_files/figure-html/unnamed-chunk-11-1.png" width="672" /> These individuals are presenting different movements. The top plot shows a mirant individual, the bottom right shows a disperser, and the bottom left shows an individual whose movements are not able to be catagotized.</p>
+<p><img src="ph_final_prj_files/figure-html/unnamed-chunk-11-1.png" width="672" /> These individuals are presenting different movements. The top plot shows a migrant individual, the bottom right shows a disperser, and the bottom left shows an individual whose movements are not able to be catagotized.</p>
 
 </div>
             </section>
